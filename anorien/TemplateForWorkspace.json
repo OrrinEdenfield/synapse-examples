@@ -37,7 +37,14 @@
 					{
 						"name": "copy_unzip",
 						"type": "Copy",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Delete1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -88,6 +95,39 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "Delete1",
+						"type": "Delete",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataset": {
+								"referenceName": "csv_ClueWeb12_all",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"logStorageSettings": {
+								"linkedServiceName": {
+									"referenceName": "anorien-WorkspaceDefaultStorage",
+									"type": "LinkedServiceReference"
+								},
+								"path": "logging"
+							},
+							"enableLogging": true,
+							"storeSettings": {
+								"type": "AzureBlobFSReadSettings",
+								"recursive": true,
+								"enablePartitionDiscovery": false
+							}
+						}
 					}
 				],
 				"folder": {
@@ -97,7 +137,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/datasets/gzip_ClueWeb12_all')]",
-				"[concat(variables('workspaceId'), '/datasets/csv_ClueWeb12_all')]"
+				"[concat(variables('workspaceId'), '/datasets/csv_ClueWeb12_all')]",
+				"[concat(variables('workspaceId'), '/linkedServices/anorien-WorkspaceDefaultStorage')]"
 			]
 		},
 		{
