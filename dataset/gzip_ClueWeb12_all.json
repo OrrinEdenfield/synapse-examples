@@ -1,0 +1,21 @@
+{
+	"name": "gzip_ClueWeb12_all",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "anorien-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "anorien"
+			},
+			"compression": {
+				"type": "TarGZip",
+				"level": "Optimal"
+			}
+		}
+	}
+}
