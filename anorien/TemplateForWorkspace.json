@@ -405,50 +405,41 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('workspaceName'), '/delete_test')]",
-			"type": "Microsoft.Synapse/workspaces/pipelines",
+			"name": "[concat(parameters('workspaceName'), '/daily-dataprep-copy-unzip')]",
+			"type": "Microsoft.Synapse/workspaces/triggers",
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
-				"activities": [
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
 					{
-						"name": "Delete1",
-						"type": "Delete",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
+						"pipelineReference": {
+							"referenceName": "dataprep-copy-unzip",
+							"type": "PipelineReference"
 						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "csv_ClueWeb12_all",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"logStorageSettings": {
-								"linkedServiceName": {
-									"referenceName": "anorien-WorkspaceDefaultStorage",
-									"type": "LinkedServiceReference"
-								},
-								"path": "logging"
-							},
-							"enableLogging": true,
-							"storeSettings": {
-								"type": "AzureBlobFSReadSettings",
-								"recursive": true,
-								"enablePartitionDiscovery": false
-							}
-						}
+						"parameters": {}
 					}
 				],
-				"annotations": []
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2021-08-06T15:10:00Z",
+						"timeZone": "UTC",
+						"schedule": {
+							"minutes": [
+								25
+							],
+							"hours": [
+								15
+							]
+						}
+					}
+				}
 			},
 			"dependsOn": [
-				"[concat(variables('workspaceId'), '/datasets/csv_ClueWeb12_all')]",
-				"[concat(variables('workspaceId'), '/linkedServices/anorien-WorkspaceDefaultStorage')]"
+				"[concat(variables('workspaceId'), '/pipelines/dataprep-copy-unzip')]"
 			]
 		}
 	]
