@@ -54,6 +54,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "Examples-dataprep"
+		},
 		"annotations": []
 	}
 }
