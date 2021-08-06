@@ -70,7 +70,9 @@
 									"copyBehavior": "FlattenHierarchy"
 								}
 							},
-							"enableStaging": false
+							"enableStaging": false,
+							"parallelCopies": 20,
+							"dataIntegrationUnits": 32
 						},
 						"inputs": [
 							{
