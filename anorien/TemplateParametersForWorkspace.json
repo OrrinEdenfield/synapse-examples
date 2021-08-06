@@ -8,9 +8,6 @@
 		"anorien-WorkspaceDefaultSqlServer_connectionString": {
 			"value": ""
 		},
-		"entwash_accountKey": {
-			"value": ""
-		},
 		"anorien-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"value": "https://anorien.dfs.core.windows.net"
 		},
