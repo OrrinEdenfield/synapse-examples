@@ -19,6 +19,13 @@
 						"referenceName": "csv_ClueWeb12_all",
 						"type": "DatasetReference"
 					},
+					"logStorageSettings": {
+						"linkedServiceName": {
+							"referenceName": "anorien-WorkspaceDefaultStorage",
+							"type": "LinkedServiceReference"
+						},
+						"path": "logging"
+					},
 					"enableLogging": true,
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
