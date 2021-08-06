@@ -39,7 +39,8 @@
 						}
 					},
 					"enableStaging": false,
-					"parallelCopies": 20
+					"parallelCopies": 20,
+					"dataIntegrationUnits": 32
 				},
 				"inputs": [
 					{
