@@ -1,0 +1,21 @@
+{
+	"name": "gzip_ClueWeb12_all_premium",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "entwash",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "entwash"
+			},
+			"compression": {
+				"type": "TarGZip",
+				"level": "Optimal"
+			}
+		}
+	}
+}
