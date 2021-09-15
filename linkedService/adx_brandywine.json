@@ -1,0 +1,15 @@
+{
+	"name": "adx_brandywine",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataExplorer",
+		"typeProperties": {
+			"endpoint": "https://brandywine.westeurope.kusto.windows.net",
+			"database": "database"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
