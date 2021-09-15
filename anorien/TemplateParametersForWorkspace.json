@@ -13,6 +13,9 @@
 		},
 		"entwash_properties_typeProperties_url": {
 			"value": "https://entwash.dfs.core.windows.net"
+		},
+		"adx_brandywine_properties_typeProperties_database": {
+			"value": "database"
 		}
 	}
 }
